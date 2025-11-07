@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Roshni Kurian — Data Engineer Portfolio</title>
-<meta name="description" content="Roshni Kurian — Data Engineer with experience in SQL, Python, HDFS, Hive; reporting with Excel & Power BI; statistical techniques including A/B testing (familiar with SPSS). Projects, certifications, resume, and contact." />
+<meta name="description" content="Roshni Kurian — Data Engineer with experience in SQL, Python, HDFS, Hive; reporting with Excel & Power BI; statistical techniques including A/B testing (familiar with SPSS). Projects, dashboards, certifications, resume, and contact." />
 <meta name="author" content="Roshni Kurian" />
-<meta name="theme-color" content="#1e3a8a" />
+<meta name="theme-color" content="#7c3aed" />
 <link rel="icon" href="./assets/favicon.png" />
 
 <!-- Google Font -->
@@ -14,29 +14,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Preload local cover images & resume (optional) -->
+<!-- Preload hero covers & (optional) resume -->
 <link rel="preload" as="image" href="./assets/rfm-cover.jpg">
 <link rel="preload" as="image" href="./assets/hospital-cover.jpg">
 <link rel="preload" as="image" href="./assets/bigdata-cover.jpg">
-<!-- If you have a self-hosted PDF, preload below -->
 <!-- <link rel="preload" as="document" href="./assets/Roshni_Kurian_Resume.pdf"> -->
 
 <style>
-/* --------- Base Tokens --------- */
+/* --------- Base Tokens (same as template) --------- */
 :root{
-  /* Light theme tokens (paper) */
-  --bg:#f7f7fb; --bg-2:#f2f4f8; --card:#ffffff; --text:#0b1220; --muted:#475569;
-  --brand:#1e3a8a; --brand-2:#2563eb; --line:#e6e8ef;
-
-  --shadow: 0 12px 30px rgba(0,0,0,.10);
-  --glass: rgba(255,255,255,.6);
+  --bg:#0b0d12; --bg-2:#0e1220; --card:#0f1722; --text:#e6e8ef; --muted:#9fb3c8;
+  --brand:#7c3aed; --brand-2:#22d3ee; --line:rgba(255,255,255,.06);
+  --shadow: 0 12px 30px rgba(0,0,0,.45);
+  --glass: rgba(255,255,255,.02);
   --radius: 14px;
   --max-width: 1120px;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 
-/* Aurora (dark) kept for theme picker */
+/* Aurora background (same) */
 body[data-theme="aurora"]{
   --bg:#061024; --bg-2:#07101a; --card:#071426; --text:#e6eefb; --muted:#9fb3c8;
   --brand:#7c3aed; --brand-2:#22d3ee; --line:rgba(255,255,255,.06);
@@ -46,11 +43,10 @@ body[data-theme="aurora"]{
    linear-gradient(180deg, var(--bg), var(--bg-2));
 }
 
-/* Paper (light) */
+/* Light theme option retained for picker */
 body[data-theme="paper"]{
   --bg:#f7f7fb; --bg-2:#f2f4f8; --card:#ffffff; --text:#0b1220; --muted:#475569;
   --brand:#1e3a8a; --brand-2:#2563eb; --line:#e6e8ef;
-  background: linear-gradient(180deg, var(--bg), var(--bg-2));
 }
 
 /* --------- Global --------- */
@@ -72,27 +68,27 @@ h2{font-size:1.6rem;margin:.2rem 0 1rem}
 
 /* Cards */
 .card{
-  background: var(--card);
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
   border:1px solid var(--line); border-radius:var(--radius); padding:1.1rem;
   box-shadow:var(--shadow); transition:transform .22s ease, box-shadow .22s ease;
 }
-.card:hover{transform:translateY(-6px); box-shadow: 0 22px 48px rgba(0,0,0,.12)}
+.card:hover{transform:translateY(-6px); box-shadow: 0 22px 48px rgba(0,0,0,.55)}
 
 /* Buttons */
 .btn{
   display:inline-grid; place-items:center; gap:.4rem;
-  padding:.65rem 1rem; border-radius:10px; cursor:pointer; font-weight:700;
+  padding:.65rem 1rem; border-radius:10px; cursor:pointer; font-weight:600;
   background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:white; border:0;
   box-shadow: 0 12px 30px color-mix(in oklab, var(--brand) 30%, transparent);
   transition:transform .13s ease;
 }
 .btn:hover{transform:translateY(-2px)}
-.btn.secondary{background:#ffffff;color:var(--brand);border:1px solid var(--line)}
+.btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}
 
 /* Nav */
 .nav{
   position:sticky; top:0; z-index:80; padding:0.6rem 0;
-  background: linear-gradient(180deg, color-mix(in oklab, var(--card) 98%, transparent), color-mix(in oklab, var(--bg-2) 70%, transparent));
+  background: linear-gradient(180deg, color-mix(in oklab, var(--bg) 90%, transparent), color-mix(in oklab, var(--bg-2) 70%, transparent));
   backdrop-filter: blur(8px) saturate(120%);
   border-bottom:1px solid var(--line);
 }
@@ -101,8 +97,8 @@ h2{font-size:1.6rem;margin:.2rem 0 1rem}
 .brand h1{font-size:1.05rem;font-weight:800}
 .brand small{display:block;color:var(--muted);font-size:.8rem}
 .nav-links{display:flex;gap:.55rem;align-items:center;flex-wrap:wrap}
-.nav-links a{padding:.45rem .6rem;border-radius:10px;color:var(--muted);font-weight:700;border:1px solid var(--line);background:var(--card);box-shadow:0 4px 10px rgba(0,0,0,.04)}
-.nav-links a:hover,.nav-links a.active{background:color-mix(in oklab,var(--brand) 6%, var(--card));color:var(--text)}
+.nav-links a{padding:.45rem .6rem;border-radius:10px;color:var(--muted);font-weight:600}
+.nav-links a:hover,.nav-links a.active{background:color-mix(in oklab,var(--brand) 12%, transparent);color:var(--text)}
 
 /* HERO */
 .hero{padding:5rem 0 3rem}
@@ -110,14 +106,14 @@ h2{font-size:1.6rem;margin:.2rem 0 1rem}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
 .hero-title{
   font-size:clamp(2rem,6vw,3rem);line-height:1.05;margin:.3rem 0;font-weight:800;
-  background:linear-gradient(90deg,#0b1220 0%, #1e3a8a 40%, #2563eb 80%);
+  background:linear-gradient(90deg,#fff 0%, #c7d2fe 35%, #a5f3fc 70%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-.tag{display:inline-block;padding:.35rem .65rem;border-radius:999px;background:color-mix(in oklab,var(--brand)18%, transparent);color:color-mix(in oklab,#fff 92%, var(--brand));font-weight:800;font-size:.85rem}
+.tag{display:inline-block;padding:.35rem .65rem;border-radius:999px;background:color-mix(in oklab,var(--brand)18%, transparent);color:color-mix(in oklab,#fff 92%, var(--brand));font-weight:700;font-size:.85rem}
 .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem}
-.kpi{border-radius:12px;padding:1rem;border:1px solid var(--line);text-align:center;background:var(--card)}
-.kpi .num{font-weight:800;font-size:1.3rem;color:var(--brand)}
+.kpi{border-radius:12px;padding:1rem;border:1px solid var(--line);text-align:center}
+.kpi .num{font-weight:800;font-size:1.4rem}
 .hero-card{background:var(--card);border-radius:18px;padding:1.1rem;display:grid;place-items:center;min-height:260px;box-shadow:var(--shadow)}
 .avatar{width:230px;height:230px;border-radius:9999px;object-fit:cover;border:3px solid color-mix(in oklab, var(--brand) 10%, transparent)}
 
@@ -131,27 +127,13 @@ h2{font-size:1.6rem;margin:.2rem 0 1rem}
 .skill-card .chip{background:color-mix(in oklab, var(--brand) 16%, transparent);color:var(--text)}
 
 /* Projects */
-.thumb{border-radius:10px;overflow:hidden;margin-bottom:.6rem;border:1px solid var(--line);background:linear-gradient(180deg, rgba(0,0,0,.02), transparent);}
+.project-img {width:100%; height:200px; object-fit:cover; border-radius:10px; margin-bottom:1rem; transition:transform .3s ease}
+.project-img:hover {transform:scale(1.02)}
+.thumb{border-radius:10px;overflow:hidden;margin-bottom:.6rem;border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);}
 
 /* Case Studies list styles */
 .case-list{display:grid;gap:.9rem}
 .case-item{display:flex;flex-direction:column;gap:.45rem}
-
-/* Dash grid */
-.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-@media (max-width:900px){.dash-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.dash-grid{grid-template-columns:1fr}}
-
-/* Testimonials */
-.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-@media (max-width:900px){.testimonials{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.testimonials{grid-template-columns:1fr}}
-.testimonial{padding:1rem;border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,.01));}
-
-/* Contact form */
-input,textarea{width:100%;padding:.7rem;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--text);resize:vertical}
-label{font-weight:700;font-size:.9rem}
-.form-grid{display:grid;gap:.7rem}
 
 /* Footer */
 footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-align:center;font-size:.95rem}
@@ -161,20 +143,19 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
 .reveal.in{opacity:1;transform:none}
 
 /* Theme picker */
-.theme-picker{position:fixed;right:14px;bottom:14px;z-index:90;display:flex;gap:.4rem;padding:.4rem;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.7));border:1px solid var(--line);backdrop-filter:blur(6px)}
-.theme-picker button{cursor:pointer;border-radius:10px;padding:.35rem .6rem;border:1px solid var(--line);background:#fff;color:var(--text);font-weight:700}
+.theme-picker{position:fixed;right:14px;bottom:14px;z-index:90;display:flex;gap:.4rem;padding:.4rem;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));border:1px solid var(--line);backdrop-filter:blur(6px)}
+.theme-picker button{cursor:pointer;border-radius:10px;padding:.35rem .6rem;border:1px solid var(--line);background:transparent;color:var(--text);font-weight:600}
 .theme-picker button:hover{transform:translateY(-2px)}
 
 /* Accessibility focus */
-:focus{outline:2px solid color-mix(in oklab,var(--brand-2) 50%, transparent);outline-offset:2px;border-radius:8px}
+:focus{outline:2px solid color-mix(in oklab,var(--brand-2) 40%, transparent);outline-offset:2px;border-radius:8px}
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
 </head>
 
-<!-- Default to LIGHT theme -->
-<body data-theme="paper">
+<body data-theme="aurora">
   <!-- NAV -->
   <nav class="nav" aria-label="Primary navigation">
     <div class="container nav-inner">
@@ -202,10 +183,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
       <div class="hero-left reveal">
         <span class="tag" aria-hidden="true">Available for Opportunities</span>
         <h2 class="hero-title">Building reliable data pipelines and practical analytics.</h2>
-        <p class="sub">
-          I work with SQL, Python, HDFS, and Hive; and use Excel, Power BI, and statistical techniques (including A/B testing) to support clear, timely decisions.
-          Familiar with SPSS. Open to Data Engineer, Data Analyst, and Business Analyst roles.
-        </p>
+        <p class="sub">I work with SQL, Python, HDFS, and Hive; and use Excel, Power BI, and statistical techniques (including A/B testing) to support clear, timely decisions. Familiar with SPSS. Open to Data Engineer, Data Analyst, and Business Analyst roles.</p>
 
         <div class="hero-actions">
           <a class="btn" href="#projects">View Projects</a>
@@ -215,25 +193,25 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
 
         <div class="kpis" aria-hidden="false">
           <div class="kpi card">
-            <div class="num">Data</div>
-            <div class="label sub">SQL · Python</div>
+            <div class="num">5</div>
+            <div class="label sub">Projects</div>
           </div>
           <div class="kpi card">
-            <div class="num">Big Data</div>
-            <div class="label sub">HDFS · Hive</div>
+            <div class="num">3</div>
+            <div class="label sub">Dashboards</div>
           </div>
           <div class="kpi card">
-            <div class="num">BI</div>
-            <div class="label sub">Excel · Power BI</div>
+            <div class="num">3+</div>
+            <div class="label sub">Case Studies</div>
           </div>
         </div>
       </div>
 
-      <!-- Right hero card -->
+      <!-- Right hero card (optional avatar/summary) -->
       <aside class="hero-card reveal" aria-label="Snapshot">
         <h3>Snapshot</h3>
         <ul class="sub" style="margin:.6rem 0 0; padding-left:1.1rem">
-          <li>PG Diploma in Data Science (<b>Data Engineering</b>) — IIIT Bangalore</li>
+          <li>PG Diploma in Data Science — <b>Data Engineering</b> (IIIT Bangalore)</li>
           <li>MCA — Amrita Vishwa Vidyapeetham</li>
           <li>Experience at Amazon · Infosys · Maveric Systems</li>
         </ul>
@@ -250,8 +228,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
   <div class="container">
     <h2 class="reveal">About</h2>
     <p class="sub reveal">
-      Data Engineer with experience in data ingestion, transformation, and reporting. Comfortable with SQL, Python, and the Hadoop ecosystem (HDFS, Hive).
-      I focus on clarity, reproducibility, and business-aligned analytics.
+      Data Engineer with experience in data ingestion, transformation, and reporting. Comfortable with SQL, Python, and the Hadoop ecosystem (HDFS, Hive). I focus on clarity, reproducibility, and business-aligned analytics.
     </p>
 
     <!-- Side-by-side layout -->
@@ -260,8 +237,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
       <!-- PROFILE -->
       <article class="card reveal">
         <h3>Profile</h3>
-        <p>Hands-on data professional with experience across e-commerce, risk/operations, and big data environments.
-           I emphasize clear models, dependable pipelines, and concise reporting.</p>
+        <p>Hands-on data professional with experience across e-commerce, risk/operations, and big data environments. I emphasize clear models, dependable pipelines, and concise reporting.</p>
 
         <div class="chips">
           <span class="chip">Location: India</span>
@@ -280,7 +256,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
             <span class="muted">IIIT Bangalore</span>
           </li>
           <li>
-            <strong>Master of Computer Applications (MCA)</strong><br>
+            <strong>MCA — Master of Computer Applications</strong><br>
             <span class="muted">Amrita Vishwa Vidyapeetham</span>
           </li>
         </ul>
@@ -290,9 +266,9 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
       <aside class="card reveal">
         <h3>Highlights</h3>
         <ul>
-          <li>Built and maintained SQL/Hive models and ETL workflows</li>
-          <li>Automated reporting & QA checks with Python/Excel</li>
-          <li>Delivered clear dashboards in Power BI</li>
+          <li>Designed & maintained SQL/Hive models and ETL workflows</li>
+          <li>Automated reporting and QA checks with Python/Excel</li>
+          <li>Built clear dashboards in Power BI</li>
         </ul>
       </aside>
 
@@ -301,47 +277,14 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
 </section>
 
 <style>
-  /* SIDE-BY-SIDE LAYOUT ONLY — NO COLOR CHANGES */
-  .about-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .card {
-    flex: 1;
-    min-width: 320px;
-    padding: 20px;
-    border-radius: 12px;
-    background: var(--card);
-    color: inherit;
-  }
-
-  .edu-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .edu-list li {
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-
-  .muted {
-    color: var(--muted);
-    font-size: 0.95em;
-  }
-
-  @media (max-width: 900px) {
-    .about-grid {
-      flex-direction: column;
-    }
-  }
+  /* layout helpers for the about grid (kept same structure) */
+  .about-grid { display: flex; justify-content: space-between; align-items: stretch; flex-wrap: wrap; gap: 20px; }
+  .about-grid .card { flex: 1; min-width: 320px; padding: 20px; border-radius: 12px; background: inherit; color: inherit; }
+  .edu-list { list-style: none; padding: 0; margin: 0; }
+  .edu-list li { margin-bottom: 10px; line-height: 1.4; }
+  .muted { color: var(--muted); font-size: .95em; }
+  @media (max-width: 900px){ .about-grid { flex-direction: column; } }
 </style>
-
 
   <!-- SKILLS -->
   <section id="skills">
@@ -352,7 +295,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
       <div class="grid-3 row">
         <article class="card skill-card reveal">
           <h3>Languages & Libraries</h3>
-          <p>SQL, Python (pandas, NumPy)</p>
+          <p>SQL, Python (pandas, NumPy) — familiar with SPSS</p>
           <div class="chips">
             <span class="chip">Window Functions</span>
             <span class="chip">Complex Joins</span>
@@ -370,7 +313,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
 
         <article class="card skill-card reveal">
           <h3>BI & Analytics</h3>
-          <p>Power BI, A/B testing (familiar with SPSS), Reporting & QA</p>
+          <p>Power BI, A/B testing, Reporting & QA</p>
           <div class="chips">
             <span class="chip">Dashboards</span><span class="chip">RFM</span><span class="chip">KPI Design</span>
           </div>
@@ -383,14 +326,14 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
 <section id="projects">
   <div class="container">
     <h2 class="reveal">Featured Projects</h2>
-    <p class="sub reveal">End-to-end, resume-aligned work.</p>
+    <p class="sub reveal">End-to-end analytics projects & reproducible notebooks.</p>
 
     <div class="grid-3 row">
       <!-- Project 1 -->
       <article class="card reveal">
         <img src="./assets/rfm-cover.jpg" alt="RFM Analysis Project" class="project-img" />
         <h3>E-commerce Customer Segmentation — RFM</h3>
-        <p>Performed RFM segmentation with Python and created Power BI views for targeting and retention planning.</p>
+        <p>Performed Recency–Frequency–Monetary segmentation with Python and created Power BI views for targeting and retention planning.</p>
         <div class="btn-group">
           <a class="btn" href="https://roshni_kurian.github.io/Portfolio/" target="_blank" rel="noopener">More Details</a>
         </div>
@@ -398,9 +341,9 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
 
       <!-- Project 2 -->
       <article class="card reveal">
-        <img src="./assets/hospital-cover.jpg" alt="Hospital Operations Analytics" class="project-img" />
+        <img src="./assets/hospital-cover.jpg" alt="Hospital Dashboard Project" class="project-img" />
         <h3>Hospital Operations Analytics</h3>
-        <p>Correlated occupancy and responsiveness/safety; delivered a Power BI dashboard for staffing signals.</p>
+        <p>Correlated occupancy, responsiveness, and safety metrics; delivered a Power BI dashboard for staffing signals.</p>
         <div class="btn-group">
           <a class="btn" href="https://roshni_kurian.github.io/Portfolio/" target="_blank" rel="noopener">More Details</a>
         </div>
@@ -408,7 +351,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
 
       <!-- Project 3 -->
       <article class="card reveal">
-        <img src="./assets/bigdata-cover.jpg" alt="Big Data Assimilation with HDFS/Hive" class="project-img" />
+        <img src="./assets/bigdata-cover.jpg" alt="Big Data (HDFS/Hive) Project" class="project-img" />
         <h3>Big Data Assimilation</h3>
         <p>Worked with HDFS/Hive for ingestion and transformation; authored onboarding docs to reduce ramp-up time.</p>
         <div class="btn-group">
@@ -419,22 +362,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
   </div>
 </section>
 
-<style>
-.project-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease;
-}
-.project-img:hover { transform: scale(1.02); }
-.btn-group { display: flex; gap: 0.6rem; margin-top: 0.8rem; }
-.btn.secondary { background: transparent; border: 1px solid var(--brand-2); color: var(--brand-2); }
-.btn.secondary:hover { background: var(--brand-2); color: #fff; }
-</style>
-
-  <!-- CERTIFICATIONS / BADGES -->
+  <!-- CERTIFICATIONS -->
   <section id="certs">
     <div class="container">
       <h2 class="reveal">Certifications & Badges</h2>
@@ -518,14 +446,14 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
     </div>
   </footer>
 
-  <!-- THEME PICKER -->
+  <!-- THEME PICKER (same control) -->
   <div class="theme-picker" aria-label="Theme picker">
-    <button data-set-theme="paper" title="Paper (light)">Paper</button>
     <button data-set-theme="aurora" title="Aurora (dark)">Aurora</button>
+    <button data-set-theme="paper" title="Paper (light)">Paper</button>
   </div>
 
 <script>
-/* ====== Utilities & Interactions ====== */
+/* ====== Utilities & Interactions (same as template) ====== */
 /* Year */
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -568,7 +496,7 @@ function copyEmail(){
 
 /* Theme picker (persist) */
 (function(){
-  const KEY = 'rk_theme';
+  const KEY = 'rk_theme'; // new key for your site
   const saved = localStorage.getItem(KEY);
   if(saved) document.body.dataset.theme = saved;
   document.querySelectorAll('[data-set-theme]').forEach(btn=>{
