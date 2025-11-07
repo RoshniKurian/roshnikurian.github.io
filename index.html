@@ -90,3 +90,201 @@ body {
   }
 }
 </style>
+
+<!-- ===== ABOUT ME SECTION ===== -->
+<section id="about" class="about">
+  <div class="container about-grid">
+
+    <!-- LEFT: PROFILE PHOTO -->
+    <div class="photo-card">
+      <img src="./assets/profile.jpg" alt="Roshni Kurian" class="profile-photo">
+    </div>
+
+    <!-- RIGHT: INTRO -->
+    <div class="intro">
+      <h1 class="name">Roshni Kurian</h1>
+      <h3 class="role">Data Engineer · Data Analyst · Business Analyst</h3>
+      <p class="summary">
+        Data Engineer and Analytics Professional with 4+ years of cross-industry experience in E-commerce, Banking, and IT Operations. 
+        Skilled in building reliable data pipelines and delivering insights that bridge technology and business. 
+        <br><br>
+        Experience spans <strong>Amazon</strong>, <strong>Maveric Systems</strong>, and <strong>Infosys</strong>, 
+        with proficiency in <strong>SQL, Python, Power BI, Excel, Hive, Hadoop</strong>, and familiarity with <strong>SPSS</strong> and <strong>A/B Testing</strong>. 
+        Passionate about clarity, reproducibility, and actionable storytelling.
+      </p>
+    </div>
+  </div>
+
+  <!-- THREE INFO CARDS -->
+  <div class="container info-grid">
+    <article class="card">
+      <h3>🎓 Education</h3>
+      <ul>
+        <li><strong>PG Diploma in Data Science (Data Engineering)</strong> — IIIT Bangalore</li>
+        <li><strong>Master of Computer Applications (MCA)</strong> — Mahatma Gandhi University</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>💼 Experience</h3>
+      <ul>
+        <li><strong>Data Engineer</strong> — Maveric Systems</li>
+        <li><strong>Data Associate</strong> — Amazon</li>
+        <li><strong>System Engineer</strong> — Infosys</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>✨ Highlights</h3>
+      <ul>
+        <li>Hands-on experience with Hadoop ecosystem (HDFS, Hive)</li>
+        <li>Automated data validation and reporting pipelines</li>
+        <li>Delivered insights on fraud-risk and operations analytics</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<style>
+<!-- ===== ABOUT ME SECTION ===== -->
+<section id="about" class="about">
+  <div class="container about-grid">
+
+    <!-- LEFT: PROFILE PHOTO -->
+    <div class="photo-card">
+      <img src="./assets/profile.jpg" alt="Roshni Kurian" class="profile-photo">
+    </div>
+
+    <!-- RIGHT: INTRO -->
+    <div class="intro">
+      <h1 class="name">Roshni Kurian</h1>
+      <h3 class="role">Data Engineer · Data Analyst · Business Analyst</h3>
+      <p class="summary">
+        Data Engineer and Analytics Professional with 4+ years of cross-industry experience in E-commerce, Banking, and IT Operations. 
+        Skilled in building reliable data pipelines and delivering insights that bridge technology and business. 
+        <br><br>
+        Experience spans <strong>Amazon</strong>, <strong>Maveric Systems</strong>, and <strong>Infosys</strong>, 
+        with proficiency in <strong>SQL, Python, Power BI, Excel, Hive, Hadoop</strong>, and familiarity with <strong>SPSS</strong> and <strong>A/B Testing</strong>. 
+        Passionate about clarity, reproducibility, and actionable storytelling.
+      </p>
+    </div>
+  </div>
+
+  <!-- THREE INFO CARDS -->
+  <div class="container info-grid">
+    <article class="card">
+      <h3>🎓 Education</h3>
+      <ul>
+        <li><strong>PG Diploma in Data Science (Data Engineering)</strong> — IIIT Bangalore</li>
+        <li><strong>Master of Computer Applications (MCA)</strong> — Mahatma Gandhi University</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>💼 Experience</h3>
+      <ul>
+        <li><strong>Data Engineer</strong> — Maveric Systems</li>
+        <li><strong>Data Associate</strong> — Amazon</li>
+        <li><strong>System Engineer</strong> — Infosys</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>✨ Highlights</h3>
+      <ul>
+        <li>Hands-on experience with Hadoop ecosystem (HDFS, Hive)</li>
+        <li>Automated data validation and reporting pipelines</li>
+        <li>Delivered insights on fraud-risk and operations analytics</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<style>
+/* ===== ABOUT ME SECTION STYLES ===== */
+.about {
+  padding: 4rem 0 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  align-items: center;
+  gap: 2rem;
+}
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .photo-card {
+    justify-self: center;
+  }
+}
+
+.profile-photo {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--line);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0.3rem 0 0.4rem;
+}
+
+.role {
+  font-weight: 600;
+  color: var(--brand);
+  margin-top: 0;
+}
+
+.summary {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Info cards */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+@media (max-width: 900px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+.card ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+</style>
