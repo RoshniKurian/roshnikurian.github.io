@@ -1,458 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<title>Roshni Kurian — Data Engineer Portfolio</title>
-<meta name="description" content="Roshni Kurian — Data Engineer with experience in SQL, Python, HDFS, Hive; reporting with Excel & Power BI; statistical techniques including A/B testing (familiar with SPSS). Projects, dashboards, certifications, resume, and contact." />
-<meta name="author" content="Roshni Kurian" />
-<meta name="theme-color" content="#7c3aed" />
-
-<link rel="icon" href="./assets/favicon.png" />
-
-<!-- Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-/* ========= BASE TOKENS (fallbacks used before a theme applies) ========= */
-:root{
-  --bg:#0b0d12; --bg-2:#0e1220; --card:#111523; --text:#e6e8ef; --muted:#a8b0c3;
-  --brand:#7c3aed; --brand-2:#22d3ee; --line:rgba(255,255,255,.08);
-  --shadow: 0 10px 30px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,.04) inset;
-}
-
-/* ========= THEME PACK (5 styles) ========= */
-body[data-theme="aurora"]{
-  --bg:#0b0d12; --bg-2:#0e1220; --card:#111523; --text:#e6e8ef; --muted:#a8b0c3;
-  --brand:#7c3aed; --brand-2:#22d3ee; --line:rgba(255,255,255,.08);
-}
-body[data-theme="light"]{
-  --bg:#ffffff; --bg-2:#f7f8fb; --card:#ffffff; --text:#0f172a; --muted:#475569;
-  --brand:#4f46e5; --brand-2:#06b6d4; --line:#e5e7eb;
-}
-body[data-theme="slate"]{
-  --bg:#0a0f16; --bg-2:#0b1220; --card:#0f1722; --text:#e5f0ff; --muted:#9fb3c8;
-  --brand:#10b981; --brand-2:#22d3ee; --line:rgba(255,255,255,.09);
-}
-body[data-theme="sunset"]{
-  --bg:#0c0a14; --bg-2:#120d1e; --card:#141022; --text:#f5f6fb; --muted:#cbbbdc;
-  --brand:#a855f7; --brand-2:#f97316; --line:rgba(255,255,255,.1);
-}
-body[data-theme="paper"]{
-  --bg:#f7f7fb; --bg-2:#f2f4f8; --card:#ffffff; --text:#0b1220; --muted:#4b5563;
-  --brand:#1e3a8a; --brand-2:#2563eb; --line:#e6e8ef;
-}
-
-/* Backgrounds */
-body[data-theme="aurora"], body[data-theme="slate"], body[data-theme="sunset"]{
-  background:
-    radial-gradient(1200px 600px at 15% -10%, color-mix(in oklab, var(--brand) 35%, transparent), transparent 55%),
-    radial-gradient(900px 500px at 85% 10%, color-mix(in oklab, var(--brand-2) 28%, transparent), transparent 60%),
-    linear-gradient(180deg, var(--bg), var(--bg-2));
-}
-body[data-theme="light"], body[data-theme="paper"]{
-  background:
-    radial-gradient(1200px 600px at 15% -10%, color-mix(in oklab, var(--brand) 14%, transparent), transparent 55%),
-    radial-gradient(900px 500px at 85% 10%, color-mix(in oklab, var(--brand-2) 10%, transparent), transparent 60%),
-    linear-gradient(180deg, var(--bg), var(--bg-2));
-}
-
-/* ========= Global styles ========= */
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text)}
-a{color:inherit;text-decoration:none}
-.container{max-width:1120px;margin:0 auto;padding:0 1.2rem}
-section{padding:4rem 0;border-top:1px solid var(--line)}
-h1,h2,h3{letter-spacing:.2px}
-h2{font-size:1.7rem;margin:.2rem 0 1.1rem}
-.sub{color:var(--muted);margin:0 0 1.6rem}
-.grid{display:grid;gap:1.1rem}
-.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-@media (max-width:900px){.grid-3{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.grid-3{grid-template-columns:1fr}}
-
-/* Cards */
-.card{
-  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-  border:1px solid var(--line); border-radius:18px; padding:1.1rem;
-  box-shadow: var(--shadow);
-  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-}
-.card:hover{transform:translateY(-3px); border-color:color-mix(in oklab, var(--brand) 35%, transparent); box-shadow:0 14px 34px rgba(0,0,0,.45)}
-
-/* Buttons */
-.btn{
-  display:inline-grid; place-items:center; gap:.45rem;
-  padding:.7rem 1rem; border-radius:12px; cursor:pointer;
-  background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:white; border:none;
-  box-shadow:0 8px 20px color-mix(in oklab, var(--brand) 35%, transparent);
-  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
-}
-.btn:hover{transform:translateY(-2px); box-shadow:0 12px 26px color-mix(in oklab, var(--brand-2) 35%, transparent)}
-.btn:active{transform:translateY(0)}
-.btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
-.btn.secondary:hover{border-color:color-mix(in oklab, var(--brand) 35%, transparent)}
-a:focus-visible,.btn:focus-visible{outline:2px solid var(--brand-2);outline-offset:2px;border-radius:12px}
-
-/* Navbar */
-.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg, color-mix(in oklab, var(--bg) 85%, transparent), color-mix(in oklab, var(--bg-2) 65%, transparent));backdrop-filter:blur(10px) saturate(140%);border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0}
-.brand{font-weight:800; letter-spacing:.3px}
-.brand .dot{color:var(--brand-2)}
-.nav ul{list-style:none;display:flex;gap:.8rem;margin:0;padding:0}
-.nav a.link{padding:.5rem .75rem;border-radius:10px}
-.nav a.link:hover,.nav a.link.active{background:color-mix(in oklab, var(--brand) 15%, transparent);border:1px solid color-mix(in oklab, var(--brand) 30%, transparent)}
-
-/* Hero */
-.hero{padding:5rem 0 3rem}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
-.hero-title{
-  font-size:clamp(2rem,5vw,3.25rem); line-height:1.08; margin:.35rem 0 1rem; font-weight:800;
-  background:linear-gradient(135deg, #fff, #c7d2fe 35%, #a5f3fc); -webkit-background-clip:text; background-clip:text; color:transparent;
-}
-.tag{display:inline-block;padding:.35rem .7rem;border-radius:999px;background:color-mix(in oklab, var(--brand) 18%, transparent);color:color-mix(in oklab,#fff 90%, var(--brand));border:1px solid color-mix(in oklab, var(--brand) 35%, transparent);font-size:.85rem}
-.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.15rem 0 0}
-.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.35rem}
-.kpi{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:16px;padding:1rem;text-align:center;box-shadow:var(--shadow)}
-.kpi .num{font-size:1.5rem;font-weight:800}
-.kpi .label{color:var(--muted)}
-.hero-card{background:var(--card);border:1px solid var(--line);border-radius:22px;min-height:260px;display:grid;place-items:center;box-shadow: var(--shadow)}
-.hero-card .avatar{width:230px;height:230px;border-radius:9999px;object-fit:cover;object-position:center;border:3px solid var(--line);box-shadow:0 12px 34px rgba(0,0,0,.45)}
-@media (max-width:900px){.hero-card .avatar{width:170px;height:170px}}
-
-/* Chips */
-.chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
-.chip{display:inline-block;padding:.38rem .68rem;border-radius:999px;font-size:.82rem;color:var(--muted);background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(120deg, var(--brand), var(--brand-2)) border-box;border:1px solid transparent}
-
-/* About & Skills */
-.about-grid,.skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;margin-top:1rem}
-@media (max-width:900px){.about-grid,.skills-grid{grid-template-columns:1fr}}
-.skill-card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:18px;padding:1.1rem;box-shadow:var(--shadow)}
-.skill-card .chip{background:color-mix(in oklab, var(--brand) 18%, transparent);color:#e9e1ff;border-color:color-mix(in oklab, var(--brand) 35%, transparent)}
-.edu-list{border-left:2px dashed var(--line);padding-left:1rem;margin:.2rem 0 0}
-.edu-list li{margin:.65rem 0}
-.edu-list .cert{display:flex;align-items:center;gap:.6rem}
-.edu-list .cert svg{width:22px;height:22px;flex:0 0 22px}
-
-/* Projects & Dashboards */
-.card h3{margin:.35rem 0 .4rem}
-.meta{color:var(--muted);font-size:.9rem}
-.dash-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
-@media (max-width:900px){.dash-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.dash-grid{grid-template-columns:1fr}}
-.thumb{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 .6rem}
-.thumb svg{display:block;width:100%;height:auto}
-
-/* Footer */
-footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-align:center}
-
-/* Reveal on scroll */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* Tabs */
-.seg{display:inline-flex;gap:.5rem;padding:.4rem;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02)}
-.seg-btn{background:transparent;border:0;color:var(--text);padding:.5rem .9rem;border-radius:10px;cursor:pointer;font-weight:600}
-.seg-btn.active{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:white}
-
-/* Theme Picker widget */
-.theme-picker{
-  position:fixed; right:14px; bottom:14px; z-index:80;
-  display:flex; gap:.4rem; padding:.4rem;
-  border:1px solid var(--line); border-radius:12px;
-  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  backdrop-filter:blur(10px);
-}
-.theme-picker button{
-  cursor:pointer; border:1px solid var(--line); background:transparent; color:var(--text);
-  padding:.38rem .55rem; border-radius:10px; font-size:.85rem; letter-spacing:.2px;
-}
-.theme-picker button:hover{border-color:color-mix(in oklab, var(--brand) 35%, transparent)}
-@media (max-width:640px){.theme-picker{left:50%; right:auto; transform:translateX(-50%)}}
-
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce){.card,.btn,.reveal{transition:none}}
-</style>
-</head>
-
-<body data-theme="aurora">
-<!-- NAV -->
-<nav class="nav" aria-label="Primary">
+<!-- ===== NAVIGATION BAR ===== -->
+<nav class="nav">
   <div class="container nav-inner">
     <a href="#home" class="brand">Roshni Kurian<span class="dot">.</span></a>
-    <ul>
-      <li><a class="link" href="#about">About</a></li>
-      <li><a class="link" href="#skills">Skills</a></li>
+    <ul class="nav-links">
+      <li><a class="link" href="#about">About Me</a></li>
       <li><a class="link" href="#projects">Projects</a></li>
-      <li><a class="link" href="#resume">Education</a></li>
-      <li><a class="link" href="#contact">Contact</a></li>
+      <li><a class="link" href="#certifications">Certifications</a></li>
+      <li><a class="link" href="#skills">Skills</a></li>
+      <li><a class="link" href="#connect">Connect with Me</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="container hero-grid">
-    <div class="hero-left reveal">
-      <span class="tag">Available for Opportunities</span>
-      <h1 class="hero-title">Building reliable data pipelines and practical analytics.</h1>
-      <p class="sub">I work with <strong>SQL</strong>, <strong>Python</strong>, <strong>HDFS</strong>, and <strong>Hive</strong>; and use <strong>Excel</strong>, <strong>Power BI</strong>, and statistical techniques (including A/B testing). Familiar with <strong>SPSS</strong>. Open to Data Engineer, Data Analyst, and Business Analyst roles.</p>
-      <div class="hero-actions">
-        <a class="btn" href="https://drive.google.com/file/d/1CuTlKaO4lTjSKQa00uLiZE-c4v1JiPpz/view?usp=drive_link" target="_blank" rel="noopener">
-          Download Resume
-        </a>
-        <a class="btn secondary" href="mailto:roshni.rose21@gmail.com">Email Me</a>
-      </div>
-      <div class="kpis">
-        <a class="kpi" href="#projects"><div class="num">5+</div><div class="label">Projects</div></a>
-        <a class="kpi" href="#projects"><div class="num">3</div><div class="label">Dashboards</div></a>
-        <a class="kpi" href="#about"><div class="num">DE · DA · BA</div><div class="label">Target roles</div></a>
-      </div>
-    </div>
-    <div class="hero-right reveal">
-      <div class="hero-card">
-        <!-- Optional avatar — drop in your own image file if you have one -->
-        <!-- <img class="avatar" src="./assets/roshni-avatar.jpg" alt="Roshni Kurian portrait" loading="eager" decoding="async" width="230" height="230"> -->
-        <div class="sub" style="text-align:center;padding:1rem">
-          <strong>Snapshot</strong>
-          <ul style="text-align:left; margin:.6rem 0 0; padding-left:1.1rem; line-height:1.6">
-            <li>PG Diploma — Data Science (Data Engineering), IIIT Bangalore</li>
-            <li>MCA — Amrita Vishwa Vidyapeetham</li>
-            <li>Experience at Amazon · Infosys · Maveric Systems</li>
-          </ul>
-          <div class="chips">
-            <span class="chip">SQL</span><span class="chip">Python</span><span class="chip">HDFS</span><span class="chip">Hive</span>
-            <span class="chip">Excel</span><span class="chip">Power BI</span><span class="chip">SPSS</span><span class="chip">A/B Testing</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <h2 class="reveal">About</h2>
-    <p class="sub reveal">Data Engineer with experience in data ingestion, transformation, and reporting. Comfortable with SQL, Python, and the Hadoop ecosystem (HDFS, Hive). I focus on clarity, reproducibility, and business-aligned analytics.</p>
-
-    <div class="about-grid">
-      <article class="card reveal">
-        <h3>Profile</h3>
-        <p>Hands-on data professional with experience across e-commerce, risk/operations, and big data environments. I emphasize clear models, dependable pipelines, and concise reporting.</p>
-        <div class="chips">
-          <span class="chip">Location: India</span>
-          <span class="chip">Open to Remote</span>
-          <span class="chip">Open to Relocation</span>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <h3>Strengths</h3>
-        <ul>
-          <li>SQL/Hive models with CTEs & window functions</li>
-          <li>Python-based automation & QA checks</li>
-          <li>Power BI dashboards and KPI design</li>
-        </ul>
-      </article>
-
-      <article class="card reveal">
-        <h3>Focus Areas</h3>
-        <ul>
-          <li>Data pipelines · Reliable ingestion & transforms</li>
-          <li>Analytics for decisions · Clean, reproducible outputs</li>
-          <li>Lightweight documentation · Handover-friendly</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <h2 class="reveal">Skills</h2>
-    <p class="sub reveal">Core tools & techniques I use.</p>
-
-    <div class="skills-grid">
-      <article class="skill-card card reveal">
-        <h3>Languages</h3>
-        <p>SQL, Python (pandas, NumPy) — familiar with SPSS</p>
-        <div class="chips">
-          <span class="chip">Window Functions</span>
-          <span class="chip">Complex Joins</span>
-          <span class="chip">CTEs</span>
-        </div>
-      </article>
-      <article class="skill-card card reveal">
-        <h3>Platforms & Storage</h3>
-        <p>HDFS, Hive, Excel, ServiceNow (process)</p>
-        <div class="chips">
-          <span class="chip">Hadoop Ecosystem</span><span class="chip">Partitions</span>
-        </div>
-      </article>
-      <article class="skill-card card reveal">
-        <h3>BI & Analytics</h3>
-        <p>Power BI, A/B testing, Reporting & QA</p>
-        <div class="chips">
-          <span class="chip">Dashboards</span><span class="chip">RFM</span><span class="chip">KPI Design</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <h2 class="reveal">Projects</h2>
-    <p class="sub reveal">End-to-end analytics and big-data work aligned with my resume.</p>
-
-    <div class="grid grid-3">
-      <article class="card reveal">
-        <h3>E-commerce Customer Segmentation — RFM</h3>
-        <p>Performed RFM segmentation with Python; created Power BI views for targeting and retention planning.</p>
-        <a class="btn" href="https://roshni_kurian.github.io/Portfolio/" target="_blank" rel="noopener">Project Details</a>
-      </article>
-
-      <article class="card reveal">
-        <h3>Hospital Operations Analytics</h3>
-        <p>Correlated occupancy, responsiveness, and safety; delivered Power BI KPI views for staffing signals.</p>
-        <a class="btn" href="https://roshni_kurian.github.io/Portfolio/" target="_blank" rel="noopener">Project Details</a>
-      </article>
-
-      <article class="card reveal">
-        <h3>Big Data Assimilation</h3>
-        <p>Worked with HDFS/Hive for ingestion & transformation; authored onboarding notes to reduce ramp-up time.</p>
-        <a class="btn" href="https://github.com/RoshniKurian" target="_blank" rel="noopener">GitHub Profile</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION (kept under "resume" anchor to match nav) -->
-<section id="resume">
-  <div class="container">
-    <h2 class="reveal">Education & Certifications</h2>
-    <p class="sub reveal">Formal education and key credentials.</p>
-
-    <div class="grid grid-3">
-      <article class="card reveal">
-        <h3>Education</h3>
-        <ul class="edu-list">
-          <li><strong>PG Diploma — Data Science (Data Engineering)</strong><br><span class="muted">IIIT Bangalore</span></li>
-          <li><strong>MCA — Master of Computer Applications</strong><br><span class="muted">Amrita Vishwa Vidyapeetham</span></li>
-        </ul>
-      </article>
-
-      <article class="card reveal">
-        <h3>Certifications</h3>
-        <ul class="edu-list">
-          <li class="cert">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="3" height="10" rx="1" fill="#F2C811"/><rect x="8.5" y="6" width="3" height="14" rx="1" fill="#F2C811"/><rect x="14" y="12" width="3" height="8" rx="1" fill="#F2C811"/><rect x="19.5" y="4" width="3" height="16" rx="1" fill="#F2C811"/></svg>
-            <div><strong>Power BI (Badge)</strong> — add verification link</div>
-          </li>
-          <li class="cert">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="6" r="1.6" fill="#4F46E5"/><circle cx="12" cy="12" r="1.6" fill="#F59E0B"/><circle cx="12" cy="18" r="1.6" fill="#4F46E5"/></svg>
-            <div><strong>Python (Badge)</strong> — add verification link</div>
-          </li>
-        </ul>
-      </article>
-
-      <article class="card reveal">
-        <h3>Resume</h3>
-        <p class="sub">Download the latest copy of my resume.</p>
-        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-          <a class="btn" href="https://drive.google.com/file/d/1CuTlKaO4lTjSKQa00uLiZE-c4v1JiPpz/view?usp=drive_link" target="_blank" rel="noopener">⬇️ Download PDF</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <h2 class="reveal">Contact</h2>
-    <p class="sub reveal">Let’s connect for relevant roles or projects.</p>
-    <div class="grid grid-3">
-      <article class="card reveal">
-        <h3>Reach me</h3>
-        <p>Email: <a href="mailto:roshni.rose21@gmail.com">roshni.rose21@gmail.com</a><br>
-           LinkedIn: <a href="https://www.linkedin.com/in/roshni-kurian" target="_blank" rel="noopener">linkedin.com/in/roshni-kurian</a><br>
-           GitHub: <a href="https://github.com/RoshniKurian" target="_blank" rel="noopener">github.com/RoshniKurian</a></p>
-      </article>
-      <article class="card reveal">
-        <h3>Quick message</h3>
-        <form onsubmit="sendMsg(event)" style="display:grid;gap:.7rem">
-          <input aria-label="Your name" id="name" required placeholder="Your name" style="padding:.7rem;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text)">
-          <input aria-label="Your email" id="email" type="email" required placeholder="you@email.com" style="padding:.7rem;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text)">
-          <textarea aria-label="Message" id="message" rows="4" required placeholder="How can I help?" style="padding:.7rem;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text)"></textarea>
-          <button class="btn" type="submit">Send</button>
-        </form>
-        <p id="formStatus" class="sub"></p>
-      </article>
-      <article class="card reveal">
-        <h3>Location & Availability</h3>
-        <p>India · Open to Remote & Relocation</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<footer>© <span id="year"></span> Roshni Kurian. All rights reserved.</footer>
-
-<!-- THEME PICKER -->
-<div class="theme-picker" aria-label="Theme Picker">
-  <button data-set-theme="aurora" title="Aurora (Dark, violet/cyan)">Aurora</button>
-  <button data-set-theme="light" title="Clean Light (White, indigo/sky)">Light</button>
-  <button data-set-theme="slate" title="Midnight Slate (Dark, teal/green)">Slate</button>
-  <button data-set-theme="sunset" title="Sunset Gradient (Dark, purple→orange)">Sunset</button>
-  <button data-set-theme="paper" title="Paper (Soft light, navy/blue)">Paper</button>
-</div>
-
-<script>
-// Year
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// Simple contact demo
-function sendMsg(e){
-  e.preventDefault();
-  const n = document.getElementById('name').value.trim();
-  const s = document.getElementById('formStatus');
-  s.textContent = `Thanks, ${n}! Your message has been recorded locally for demo.`;
+<style>
+/* ======= NAVBAR STYLES ======= */
+:root {
+  --brand: #7c3aed;
+  --brand-2: #22d3ee;
+  --bg: #f7f7fb;
+  --text: #0b1220;
+  --muted: #4b5563;
+  --line: #e6e8ef;
 }
 
-// Reveal on scroll
-(function(){
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
-    });
-  }, {threshold:.12});
-  reveals.forEach(el=>io.observe(el));
-})();
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
 
-// Theme picker (remembers choice)
-(function(){
-  const KEY = 'ss_theme';
-  const saved = localStorage.getItem(KEY);
-  if(saved) document.body.dataset.theme = saved;
+/* Nav wrapper */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
 
-  document.querySelectorAll('[data-set-theme]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const t = btn.getAttribute('data-set-theme');
-      document.body.dataset.theme = t;
-      localStorage.setItem(KEY, t);
-    });
-  });
-})();
-</script>
-</body>
-</html>
+/* Container setup */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+}
+
+/* Layout */
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+}
+
+/* Brand */
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.2px;
+  color: var(--brand);
+  text-decoration: none;
+}
+.brand .dot {
+  color: var(--brand-2);
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background: color-mix(in oklab, var(--brand) 15%, transparent);
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .nav-inner {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+</style>
