@@ -72,7 +72,18 @@ a{color:inherit;text-decoration:none}
 section{padding:4rem 0;border-top:1px solid var(--line)}
 h1,h2,h3{letter-spacing:.2px}
 h2{font-size:1.7rem;margin:.2rem 0 1.1rem}
-.sub{color:var(--muted);margin:0 0 1.6rem}
+/* ===== Summary Paragraph Styling ===== */
+.summary {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  text-align: justify;
+  max-width: 640px;
+  margin-top: 0.8rem;
+  margin-bottom: 1.4rem;
+  text-justify: inter-word;
+}
+
 .grid{display:grid;gap:1.1rem}
 .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:900px){.grid-3{grid-template-columns:1fr 1fr}}
@@ -267,8 +278,13 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
   <div class="container hero-grid">
     <div class="hero-left reveal">
       <span class="tag">Available for Work</span>
-      <h1 class="hero-title">Data Analyst turning raw data into clear, confident decisions.</h1>
-      <p class="sub">I work with <strong>SQL</strong>, <strong>Python</strong>, <strong>Power BI</strong>, <strong>Tableau</strong>, and <strong>Excel</strong> to build dashboards, automate reporting, and answer business questions.</p>
+      <h1 class="hero-title">Data Professional</h1>
+      <p class="summary">
+        Data professional with experience across <strong>e-commerce</strong>, <strong>banking</strong>, and <strong>education</strong> domains. 
+        Skilled in working with <strong>SQL</strong>, <strong>Excel</strong>, and <strong>ServiceNow</strong>, with familiarity in 
+        <strong>Power BI</strong>, <strong>Python</strong>, <strong>SPSS</strong>, and big data tools like <strong>HDFS</strong> and 
+        <strong>Hive</strong>. Passionate about enabling data-driven decisions through reliable data processes and clear insights.
+      </p>
      <div class="hero-actions">
       <a class="btn" href="mailto:roshni.rose21@gmail.com" aria-label="Email Roshni Kurian">
         ✉️ Drop an Email
