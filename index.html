@@ -44,10 +44,7 @@ body[data-theme="sunset"]{
   --bg:#0c0a14; --bg-2:#120d1e; --card:#141022; --text:#f5f6fb; --muted:#cbbbdc;
   --brand:#a855f7; --brand-2:#f97316; --line:rgba(255,255,255,.1);
 }
-body[data-theme="paper"]{
-  --bg:#f7f7fb; --bg-2:#f2f4f8; --card:#ffffff; --text:#0b1220; --muted:#4b5563;
-  --brand:#1e3a8a; --brand-2:#2563eb; --line:#e6e8ef;
-}
+
 
 /* Backgrounds */
 body[data-theme="aurora"], body[data-theme="slate"], body[data-theme="sunset"]{
@@ -56,12 +53,54 @@ body[data-theme="aurora"], body[data-theme="slate"], body[data-theme="sunset"]{
     radial-gradient(900px 500px at 85% 10%, color-mix(in oklab, var(--brand-2) 28%, transparent), transparent 60%),
     linear-gradient(180deg, var(--bg), var(--bg-2));
 }
-body[data-theme="light"], body[data-theme="paper"]{
-  background:
-    radial-gradient(1200px 600px at 15% -10%, color-mix(in oklab, var(--brand) 14%, transparent), transparent 55%),
-    radial-gradient(900px 500px at 85% 10%, color-mix(in oklab, var(--brand-2) 10%, transparent), transparent 60%),
-    linear-gradient(180deg, var(--bg), var(--bg-2));
+/* ===== Visibility fixes for light theme ===== */
+body[data-theme="light"] {
+  /* make chips and cards readable on white */
+  --muted-on-light: #6b7280; /* slightly darker muted */
 }
+
+/* Make skill cards and text darker on light theme */
+body[data-theme="light"] .skills-layout .skill-card,
+body[data-theme="light"] .skills-layout .skill-card h3,
+body[data-theme="light"] .skills-layout .skill-card p {
+  color: var(--text);
+}
+
+/* Make chips readable (dark text on light chip background) */
+body[data-theme="light"] .skills-layout .chip {
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(15,23,42,0.03), rgba(15,23,42,0.02));
+  border: 1px solid rgba(15,23,42,0.06);
+}
+
+/* Ensure meta/sub text is visible */
+body[data-theme="light"] .meta,
+body[data-theme="light"] .small-text,
+body[data-theme="light"] .summary {
+  color: var(--muted);
+  opacity: 0.95;
+}
+
+/* Make the hero secondary button (LinkedIn) clearly visible on light background */
+body[data-theme="light"] .hero-actions .btn.secondary {
+  color: var(--text);                 /* dark text */
+  border-color: rgba(15,23,42,0.08); /* subtle dark border */
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Improve contrast on hover (optional) */
+body[data-theme="light"] .hero-actions .btn.secondary:hover {
+  background: linear-gradient(135deg, color-mix(in oklab, var(--brand) 14%, white), color-mix(in oklab, var(--brand-2) 10%, white));
+  color: #fff;
+  border-color: transparent;
+}
+
+/* If chips still look pale, this forces stronger text */
+body[data-theme="light"] .chip {
+  color: var(--text);
+}
+
 
 /* ========= Global styles ========= */
 *{box-sizing:border-box}
@@ -777,7 +816,6 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
   <button data-set-theme="light" title="Clean Light (White, indigo/sky)">Light</button>
   <button data-set-theme="slate" title="Midnight Slate (Dark, teal/green)">Slate</button>
   <button data-set-theme="sunset" title="Sunset Gradient (Dark, purple→orange)">Sunset</button>
-  <button data-set-theme="paper" title="Paper (Soft light, navy/blue)">Paper</button>
 </div>
 
 <script>
