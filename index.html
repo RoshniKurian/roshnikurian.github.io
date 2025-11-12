@@ -203,6 +203,45 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
 
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce){.card,.btn,.reveal{transition:none}}
+/* ===== Hero Button Customization (Roshni Edition) ===== */
+.hero-actions .btn {
+  padding: 0.65rem 1.4rem;
+  border-radius: 28px;         /* rounded rectangle / pill */
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 10px 22px rgba(12,13,20,0.28);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+/* primary (solid) */
+.hero-actions .btn {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #ffffff;
+  border: none;
+}
+
+/* secondary (outline but filled on hover) */
+.hero-actions .btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: none;
+}
+
+/* hover/active effects */
+.hero-actions .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(12,13,20,0.32);
+}
+.hero-actions .btn.secondary:hover {
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--brand) 22%, transparent),
+    color-mix(in oklab, var(--brand-2) 18%, transparent));
+  color: var(--text);
+  border-color: transparent;
+}
+
+  
 </style>
 </head>
 
@@ -230,13 +269,15 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
       <span class="tag">Available for Work</span>
       <h1 class="hero-title">Data Analyst turning raw data into clear, confident decisions.</h1>
       <p class="sub">I work with <strong>SQL</strong>, <strong>Python</strong>, <strong>Power BI</strong>, <strong>Tableau</strong>, and <strong>Excel</strong> to build dashboards, automate reporting, and answer business questions.</p>
-      <div class="hero-actions">
-      <a class="btn" href="./santosh_seru_Resume.pdf"
-   download="Seru_Santosh_Resume.pdf" data-force-download>
-  Download Resume
-</a>
-        <a class="btn secondary" href="mailto:roshni.rose21@gmail.com">Email Me</a>
-      </div>
+     <div class="hero-actions">
+      <a class="btn" href="mailto:roshni.rose21@gmail.com" aria-label="Email Roshni Kurian">
+        ✉️ Drop an Email
+      </a>
+
+      <a class="btn secondary" href="https://www.linkedin.com/in/roshni-kurian/" target="_blank" rel="noopener" aria-label="Open Roshni Kurian on LinkedIn">
+        🔗 Connect via LinkedIn
+      </a>
+</div>
       <div class="kpis">
         <a class="kpi" href="#projects"><div class="num">12+</div><div class="label">Mini Projects</div></a>
         <a class="kpi" href="#dashboards"><div class="num">10</div><div class="label">Dashboards</div></a>
