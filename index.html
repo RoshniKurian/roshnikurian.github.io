@@ -124,7 +124,16 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--brand-2);outline-offs
 .kpi{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:16px;padding:1rem;text-align:center;box-shadow:var(--shadow)}
 .kpi .num{font-size:1.5rem;font-weight:800}
 .kpi .label{color:var(--muted)}
-.hero-card{background:var(--card);border:1px solid var(--line);border-radius:22px;min-height:260px;display:grid;place-items:center;box-shadow: var(--shadow)}
+.hero-card {
+  background: radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 70%);
+  border: none;
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
 .hero-card img.avatar {
   width: 280px;
   height: 280px;
