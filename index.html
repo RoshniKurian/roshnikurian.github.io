@@ -45,6 +45,44 @@ body[data-theme="sunset"]{
   --brand:#a855f7; --brand-2:#f97316; --line:rgba(255,255,255,.1);
 }
 
+  /* ===== Enhanced readability for LIGHT THEME ===== */
+
+/* Make name (hero-title) pure black or near black */
+body[data-theme="light"] .hero-title {
+  background: none;          /* remove gradient */
+  color: #000000;            /* solid black for readability */
+  -webkit-background-clip: initial;
+  background-clip: initial;
+}
+
+/* Make subtitle slightly softer dark gray */
+body[data-theme="light"] .hero-subtitle {
+  color: #1f2937;            /* Tailwind gray-800 equivalent */
+  opacity: 1;
+}
+
+/* Available for Work tag — soft blue background, dark text */
+body[data-theme="light"] .tag {
+  background: #e0f2fe;       /* pale sky blue background */
+  color: #0369a1;            /* dark blue text */
+  border: 1px solid #bae6fd; /* subtle border */
+  font-weight: 600;
+}
+
+/* LinkedIn secondary button — filled blue for visibility */
+body[data-theme="light"] .hero-actions .btn.secondary {
+  background: #0a66c2;       /* LinkedIn blue */
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(10,102,194,0.3);
+}
+
+body[data-theme="light"] .hero-actions .btn.secondary:hover {
+  background: #004182;       /* darker blue on hover */
+  box-shadow: 0 6px 18px rgba(0,65,130,0.35);
+  transform: translateY(-2px);
+}
+
 
 /* Backgrounds */
 body[data-theme="aurora"], body[data-theme="slate"], body[data-theme="sunset"]{
