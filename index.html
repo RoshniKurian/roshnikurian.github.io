@@ -190,9 +190,9 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--brand-2);outline-offs
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* About & Skills */
-.about-grid,.skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;margin-top:1rem}
-@media (max-width:900px){.about-grid,.skills-grid{grid-template-columns:1fr}}
+/* About &  */
+.about-grid,.-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;margin-top:1rem}
+@media (max-width:900px){.about-grid,.-grid{grid-template-columns:1fr}}
 .skill-card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:18px;padding:1.1rem;box-shadow:var(--shadow)}
 .skill-card .chip{background:color-mix(in oklab, var(--brand) 18%, transparent);color:#e9e1ff;border-color:color-mix(in oklab, var(--brand) 35%, transparent)}
 .edu-list{border-left:2px dashed var(--line);padding-left:1rem;margin:.2rem 0 0}
@@ -299,6 +299,39 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
   color: var(--brand-2);
   text-decoration: underline;
 }
+/* ===== SKILLS LAYOUT (dedicated grid for skills section) ===== */
+.skills-layout {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+/* Tablet / medium screens */
+@media (max-width: 1100px) {
+  .skills-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .skills-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Optional polish — hover effect */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+}
 
   
 </style>
@@ -311,7 +344,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
     <a href="#home" class="brand">Roshni Kurian<span class="dot">.</span></a>
     <ul>
       <li><a class="link" href="#about">About</a></li>
-      <li><a class="link" href="#skills">Skills</a></li>
+      <li><a class="link" href="#"></a></li>
       <li><a class="link" href="#projects">Projects</a></li>
       <li><a class="link" href="#cert">Certifications</a></li>
       <li><a class="link" href="#case-studies">Case Studies</a></li>
@@ -384,7 +417,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
         </ul>
         <p style="margin-top:0.8rem; font-size:0.9rem; color:var(--muted);">
             Solid academic foundation in computer applications and data engineering, 
-            supporting strong analytical and technical skills relevant to data-driven roles.
+            supporting strong analytical and technical  relevant to data-driven roles.
         </p>
         <div class="chips">
           <span class="chip">📍 Current Location: Kerala, India</span>
@@ -450,13 +483,13 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
+<!--  -->
+<section id="">
   <div class="container">
-    <h2 class="reveal">Skills</h2>
+    <h2 class="reveal"></h2>
     <p class="sub reveal">Core tools & techniques I use.</p>
 
-    <div class="skills-grid">
+    <div class="skills-layout">
       <article class="skill-card card reveal">
         <h3>📊 Data Analysis & Visualization</h3>
         <p>Skilled in analyzing and interpreting data using <strong>Excel</strong>, <strong>Power BI</strong>, and <strong>SPSS</strong>. Experienced in creating clean reports and dashboards that support data-driven decisions.</p>
@@ -493,7 +526,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
       </article>
 
       <article class="skill-card card reveal">
-        <h3>🗄️ Core Data & Reporting Skills</h3>
+        <h3>🗄️ Core Data & Reporting </h3>
         <p>Proficient in <strong>SQL</strong> for querying and reporting. Familiar with <strong>Power Query</strong> and data preparation techniques to support analytics workflows.</p>
         <div class="chips">
           <span class="chip">SQL</span>
