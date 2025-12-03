@@ -4,3 +4,10 @@ body{
 .title {
 	color: #5C6AC4;
 }
+
+/* Improve caption readability in Light Theme */
+body[data-theme="light"] .cert-thumb .caption {
+  color: var(--text) !important;
+  text-shadow: none;
+}
+
