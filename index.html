@@ -415,7 +415,53 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
 }
 
-  
+/* ===== CERTIFICATE THUMBNAILS (Clean 3-column grid + resized images) ===== */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+}
+
+.cert-thumb {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.6rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: center;
+}
+
+.cert-thumb:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+}
+
+/* Force all certificate images to small thumbnails */
+.cert-thumb img {
+  width: 100%;
+  max-width: 220px;   /* adjust for smaller thumbnails */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.cert-thumb .caption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+/* Better caption visibility for light mode */
+body[data-theme="light"] .cert-thumb .caption {
+  color: #1f2937;
+}
+
 </style>
 </head>
 
@@ -620,7 +666,7 @@ footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);text-a
     </div>
   </div>
 </section>
-<!-- Certificates Grid -->
+<!-- Certifications -->
 <div class="cert-grid reveal" aria-live="polite">
   <!-- Certificate 1 -->
   <a class="cert-thumb" 
