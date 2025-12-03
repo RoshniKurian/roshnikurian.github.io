@@ -462,6 +462,18 @@ body[data-theme="light"] .cert-thumb .caption {
   color: #1f2937;
 }
 
+  /* Fix Certification Section Title Visibility */
+#cert h2,
+#cert .sub {
+  color: var(--text);     /* ensures visible on all themes */
+  opacity: 1;
+}
+body[data-theme="light"] #cert h2,
+body[data-theme="light"] #cert .sub {
+  color: #0f172a; /* dark navy for readability */
+}
+
+
 </style>
 </head>
 
