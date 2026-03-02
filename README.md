@@ -19,6 +19,6 @@ Passionate about building data solutions that simplify decision-making and impro
 
 ### Links
 - 📄 Resume:
-- 🌐 Portfolio: [roshni_kurian.github.io/Portfolio]([https://roshni_kurian.github.io/Portfolio/](https://roshnikurian.github.io/))
+- 🌐 Portfolio:https://roshnikurian.github.io/
 - ✉️ Email: **roshni.rose21@gmail.com**
 - 🔗 LinkedIn: https://www.linkedin.com/in/roshni-kurian/
